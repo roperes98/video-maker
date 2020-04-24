@@ -81,6 +81,8 @@ typings/
 # credentials
 credentials/*.json
 
+content.json
+
 # Nuxt.js build / generate output
 .nuxt
 dist
