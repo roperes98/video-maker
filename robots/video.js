@@ -63,7 +63,7 @@ async function robot() {
   
     async function createSentenceImage(sentenceIndex, sentenceText) {
       return new Promise((resolve, reject) => {
-        const outputFile = (`./content/${sentenceIndex}-sentence.png`)
+        const outputFile = `./content/${sentenceIndex}-sentence.png`
   
         const templateSettings = {
           0: {
@@ -117,12 +117,16 @@ async function robot() {
   
   async function createYouTubeThumbnail() {
   return new Promise((resolve, reject) => {
-    if (error) {
-      return reject(error)
-    }
-  
-    console.log('> Creating YouTube thumbnail')
-    resolve()
+    gm()
+      .in('./content/0-converted.png')
+      .write('./content/youtube-thumbail.jpg', (error) => {
+        if (error) {
+          return reject(error)
+        }
+
+        console.log('> Creating YouTube thumbnail')
+        resolve()
+      })
     })
   }
 }
